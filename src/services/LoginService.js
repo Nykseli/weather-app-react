@@ -1,8 +1,5 @@
 import axios from 'axios'
-
-//axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
-
-
+import CookieService from './CookieService'
 const config = require('../config')
 
 const login = (data) => {
@@ -20,6 +17,7 @@ const login = (data) => {
   request.then(response => response.data).then(function (response) {
     // TODO: set api_token as a cookie
     console.log(response);
+    CookieService.setCookie('api_token', response.data.api_token);
   }).catch(function (error) {
     //TODO: tell user that login failed
     console.log(error);
