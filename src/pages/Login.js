@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import CookieService from '../services/CookieService'
 import LoginService from '../services/LoginService'
 import '../style/Login.css'
 
@@ -13,7 +14,12 @@ const Login = (props) => {
       email: username,
       password: password
     }
-    LoginService.login(loginData);
+    LoginService.login(loginData).then((response) => {
+      CookieService.setCookie('api_token', response.data.api_token)
+      window.location = 'http://localhost:3000'
+    }).catch((error) => {
+      console.log(error)
+    })
     return false;
   }
 
