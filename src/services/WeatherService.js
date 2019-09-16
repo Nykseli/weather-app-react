@@ -1,7 +1,9 @@
 import axios from 'axios'
 import CookieService from './CookieService'
 
-const baseUrl = `${process.env.REACT_APP_BACKEND_URL}/api/weather` || 'localhost:8000/api/weather'
+const config = require('../config')
+
+const baseUrl = config.weatherUrl
 
 const getAll = () => {
   const request = axios.get(baseUrl)
