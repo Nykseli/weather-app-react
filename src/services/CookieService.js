@@ -17,7 +17,18 @@ const setCookie = (name, value) => {
  */
 const getCookie = (name) => {
     const cookies = new Cookies();
-    return cookies.get(name, {doNotParse: true});
+    return cookies.get(name, { doNotParse: true });
 }
 
-export default { setCookie, getCookie }
+/**
+ *
+ * @param {string} name
+ * @return {void}
+ */
+const removeCookie = (name) => {
+
+    const cookies = new Cookies()
+    cookies.remove(name, { path: '/' })
+}
+
+export default { setCookie, getCookie, removeCookie }

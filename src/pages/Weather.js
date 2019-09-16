@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import WeatherService from '../services/WeatherService';
+import LogoutButton from '../buttons/LogoutButton'
 
 
 const Weather = (props) => {
@@ -33,6 +34,7 @@ const Weather = (props) => {
 
   return (
     <div>
+      <LogoutButton />
       <h2>City: {cityName}</h2>
       <h3>Temperature: {temperature}</h3>
     </div>
